@@ -36,14 +36,14 @@ const routes = (app) => {
             console.log(`Request from: ${req.originlUrl}`)
             console.log(`Reqest from: ${req.method}`)
             next();
-        }, loginRequired, getProducts)
+        }, getProducts)
 
         //Post endpoint
         .post(loginRequired, addNewProduct);
     
     app.route('/product/:productID')
         //get a specific product
-        .get(loginRequired, getProductWithID)
+        .get(getProductWithID)
 
         // updating a specific product
         .put(loginRequired, updateProduct)
@@ -53,19 +53,19 @@ const routes = (app) => {
 
     // category endpoints
     app.route('/category')
-        .get(loginRequired, getCategories)
+        .get(getCategories)
         .post(loginRequired, addNewCategory);
     app.route('/category/:categoryID')
-        .get(loginRequired, getCategoryWithID)
+        .get(getCategoryWithID)
         .put(loginRequired, updateCategory)
         .delete(loginRequired, deleteCategory);
 
     // product category endpoints
     app.route('/productCategory')
-        .get(loginRequired, getProductCategories)
+        .get(getProductCategories)
         .post(loginRequired, addNewProductCategory);
     app.route('/productCategory/:productCategoryID')
-        .get(loginRequired, getProductCategoryWithID)
+        .get(getProductCategoryWithID)
         .delete(loginRequired, deleteProductCategory);
 }
 

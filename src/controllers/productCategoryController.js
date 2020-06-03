@@ -24,7 +24,7 @@ export const getProductCategories = (req, res) => {
 }
 
 export const getProductCategoryWithID = (req, res) => {
-    ProductCategory.findById(req.params.categoryID, (err, productCategory) => {
+    ProductCategory.findById(req.params.productCategoryID, (err, productCategory) => {
         if (err) {
             res.send(err);
         }
@@ -33,7 +33,7 @@ export const getProductCategoryWithID = (req, res) => {
 }
 
 export const deleteProductCategory = (req, res) => {
-    ProductCategory.remove({_id: req.params.categoryID}, (err, productCategory) => {
+    ProductCategory.remove({_id: req.params.productCategoryID}, (err, productCategory) => {
         if (err) {
             res.send(err);
         }

@@ -2,8 +2,9 @@ import express from 'express';
 import routes from './src/routes/hhRoutes';
 import mongoose from 'mongoose';
 import jsonwebtoken from 'jsonwebtoken';
-import User from './src/models/userModel';
+// import User from './src/models/userModel';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 const app = express();
 const PORT = 4000;
@@ -14,6 +15,9 @@ mongoose.connect('mongodb://localhost/hhdb', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
+// Enable All CORS Requests
+app.use(cors());
 
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true}));

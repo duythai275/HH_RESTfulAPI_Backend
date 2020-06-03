@@ -3,13 +3,17 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 export const ProductSchema =  new Schema({
+    code: {
+        type: String,
+        required: true, 
+        unique: true
+    },
     name: {
         type: String,
         required: 'Enter a name'
     },
     description: {
-        type: String,
-        required: 'Enter a description'
+        type: String
     },
     price: {
         type: Number,
@@ -17,11 +21,12 @@ export const ProductSchema =  new Schema({
     },
     image: {
         type: String,
-        required: 'Enter the image path'
+        required: 'Enter the image path',
+        unique: true
     },
-    available: {
+    weeklySpecial: {
         type: Boolean,
-        default: true
+        default: false
     },
     onSale: {
         type: Number
