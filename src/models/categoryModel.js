@@ -14,5 +14,10 @@ export const CategorySchema =  new Schema({
     },
     description: {
         type: String
+    },
+    image: {
+        type: String,
+        required: 'Enter the image path',
+        unique: true
     }
 });
